@@ -33,7 +33,7 @@ typedef struct	s_frac
 	void	*mlx_ptr;
 	void	*win_ptr;
 	void	*img_ptr;
-	char	*img;
+	int		*img;
 	int		bpp;
 	int		size_line;
 	int		endian;

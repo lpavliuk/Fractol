@@ -45,15 +45,20 @@ static void	algorithm(t_frac *frac, int x, int y)
 		if((newRe * newRe + newIm * newIm) > 4)
     		break;
   	}
-    if (i < maxIterations)
+    if (i == maxIterations)
     {
-    	color = mlx_get_color_value(MLX, 0xFFFFFF);
-    	ft_memset(IMG + (x * 4) + (y * WIDTH_W), color, sizeof(unsigned int));
+    	// color = mlx_get_color_vlue(MLX, 0x000000);
+    	// ft_printf("{red} ");
+    	// IMG[(x * 4) + (y * WIDTH_W)];
+    	IMG[x + (y * WIDTH_W)] = 0x000000;
+    		// ft_memset(IMG + ((x) + (y * WIDTH_W)), 0xFFFFFF, sizeof(unsigned int));
     }
     else
     {
-    	color = mlx_get_color_value(MLX, 256 + i);
-    	ft_memset(IMG + (x * 4) + (y * WIDTH_W), color, sizeof(unsigned int));
+    	// ft_printf("{red} %u", color);
+    	// color = mlx_get_color_value(MLX, 256 + i);
+    	IMG[x + (y * WIDTH_W)] = 0x0F0F0F * i;
+    	// ft_memset(IMG + ((x) + (y * WIDTH_W)), 0xFF0000, sizeof(unsigned int));
     }
 }
 
@@ -70,4 +75,5 @@ void		mandelbrot(t_frac *frac)
 		while (++x < WIDTH_W)
 			algorithm(frac, x, y);
 	}
+	mlx_put_image_to_window(MLX, WIN, IMG_PTR, 0, 0);
 }

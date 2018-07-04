@@ -26,17 +26,13 @@ void		ft_error(char *str)
 
 void		create_window(t_frac *frac)
 {
-	int endian;
-	int bpp;
-	int size_line;
-
-	endian = 0;
-	bpp = 32;
-	size_line = WIDTH_W;
+	frac->endian = 0;
+	frac->bpp = 32;
+	frac->size_line = WIDTH_W;
 	MLX = mlx_init();
 	WIN = mlx_new_window(MLX, WIDTH_W, HEIGHT_W, "Fractol");
 	IMG_PTR = mlx_new_image(MLX, WIDTH_W, HEIGHT_W);
-	IMG = mlx_get_data_addr(IMG_PTR, &bpp, &size_line, &endian);
+	IMG = (int *)mlx_get_data_addr(IMG_PTR, &frac->bpp, &frac->size_line, &frac->endian);
 }
 
 
@@ -50,6 +46,7 @@ int			main(int argc, char **argv)
 		t_frac *frac;
 
 		frac = malloc(sizeof(t_frac));
+		create_window(frac);
 		if (!ft_strcmp(argv[1], "1"))
 			mandelbrot(frac);
 		else if (!ft_strcmp(argv[1], "2"))
@@ -58,7 +55,6 @@ int			main(int argc, char **argv)
 			ft_printf("{green}OK - {yellow}3!\n");
 		else
 			ft_error(ERR_1);
-		create_window(frac);
 		// mlx_hook(WIN, 2, 0, key_hook, fdf);
 		mlx_hook(WIN, 17, 1L << 17, exit_x, 0);
 		mlx_loop(MLX);
