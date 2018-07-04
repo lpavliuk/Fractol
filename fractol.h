@@ -17,8 +17,8 @@
 # include <mlx.h>
 # include <math.h>
 
-# define ERR_0 "{green}Usage: {blue}./fractol {yellow}[name of fractol]\n"
-# define ERR_1 "{red}Error: {yellow}There isn't this type of fractol!\n"
+# define ERR_0 "{green}Usage: {blue}./fractol {yellow}[name of fractol] ☝️ 😏\n"
+# define ERR_1 "{red}Error: {yellow}There isn't this type of fractol! 🤔\n"
 
 # define MLX frac->mlx_ptr
 # define WIN frac->win_ptr

@@ -57,7 +57,7 @@ static void	algorithm(t_frac *frac, int x, int y)
     {
     	// ft_printf("{red} %u", color);
     	// color = mlx_get_color_value(MLX, 256 + i);
-    	IMG[x + (y * WIDTH_W)] = 256 * i;
+    	IMG[x + (y * WIDTH_W)] = 2 * i;
     	// ft_memset(IMG + ((x) + (y * WIDTH_W)), 0xFF0000, sizeof(unsigned int));
     }
 }
