@@ -41,7 +41,7 @@ t_frac		*init_frac(void)
 
 	frac = malloc(sizeof(t_frac));
 	ZOOM = 1;
-	COLOR = 256;
+	COLOR = 0x0F0F0F;
 	MOVE_X = -0.5;
 	MOVE_Y = 0;
 	FRACTOL = 0;
@@ -66,7 +66,7 @@ int			main(int argc, char **argv)
 			ft_printf("{green}OK - {yellow}3!\n");
 		else
 			ft_error(ERR_1);
-		draw_fractol(frac);
+		work_pthreads(frac);
 		mlx_hook(WIN, 2, 0, key_hook, frac);
 		mlx_mouse_hook(WIN, mouse_hook, frac);
 		mlx_hook(WIN, 17, 1L << 17, exit_x, 0);

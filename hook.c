@@ -43,7 +43,7 @@ int			mouse_hook(int keycode, int x, int y, t_frac *frac)
 	mlx_clear_window(MLX, WIN);	
 	if (keycode == 4 || keycode == 5)
 		changed_zoom(keycode, frac, x, y);
-	draw_fractol(frac);
+	work_pthreads(frac);
 	return (0);
 }
 
@@ -57,6 +57,6 @@ int			key_hook(int keycode, t_frac *frac)
 	}
 	else if (keycode == 78 || keycode == 69 || keycode == 76)
 		work_with_color(keycode, frac);
-	draw_fractol(frac);
+	work_pthreads(frac);
 	return (0);
 }

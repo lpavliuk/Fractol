@@ -33,8 +33,8 @@
 # define MS_Y frac->mouse_y
 # define FRACTOL frac->number
 
-# define WIDTH_W 1920
-# define HEIGHT_W 1080
+# define WIDTH_W 1200
+# define HEIGHT_W 700
 
 typedef struct	s_frac
 {
@@ -54,8 +54,15 @@ typedef struct	s_frac
 	double	zoom;
 }				t_frac;
 
+typedef struct	s_threads
+{
+	t_frac		*data;
+	pthread_t	threads;
+	int			num;
+}				t_threads;
+
 void			ft_error(char *str);
-void			draw_fractol(t_frac *frac);
+void			work_pthreads(t_frac *frac);
 void			mandelbrot(t_frac *frac, int x, int y);
 int				mouse_hook(int keycode, int x, int y, t_frac *frac);
 int				key_hook(int keycode, t_frac *frac);
