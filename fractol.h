@@ -24,6 +24,8 @@
 # define WIN frac->win_ptr
 # define IMG_PTR frac->img_ptr
 # define IMG frac->img
+# define ZOOM frac->zoom
+# define COLOR frac->color
 
 # define WIDTH_W 1920
 # define HEIGHT_W 1080
@@ -34,9 +36,11 @@ typedef struct	s_frac
 	void	*win_ptr;
 	void	*img_ptr;
 	int		*img;
+	int		color;
 	int		bpp;
 	int		size_line;
 	int		endian;
+	double	zoom;
 }				t_frac;
 
 void			ft_error(char *str);
