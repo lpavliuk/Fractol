@@ -1,2 +1,2 @@
-gcc main.c mandelbrot.c libft/libft.a -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit -o fractol -I /usr/local/include
+gcc main.c draw_fractol.c hook.c mandelbrot.c libft/libft.a -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit -o fractol -I /usr/local/include
 ./fractol 1

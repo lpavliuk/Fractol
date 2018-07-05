@@ -16,6 +16,7 @@
 # include "libft/libft.h"
 # include <mlx.h>
 # include <math.h>
+# include <pthread.h>
 
 # define ERR_0 "{green}Usage: {blue}./fractol {yellow}[name of fractol] ☝️ 😏\n"
 # define ERR_1 "{red}Error: {yellow}There isn't this type of fractol! 🤔\n"
@@ -26,6 +27,11 @@
 # define IMG frac->img
 # define ZOOM frac->zoom
 # define COLOR frac->color
+# define MOVE_X frac->move_x
+# define MOVE_Y frac->move_y
+# define MS_X frac->mouse_x
+# define MS_Y frac->mouse_y
+# define FRACTOL frac->number
 
 # define WIDTH_W 1920
 # define HEIGHT_W 1080
@@ -40,10 +46,18 @@ typedef struct	s_frac
 	int		bpp;
 	int		size_line;
 	int		endian;
+	int		number;
+	double	mouse_x;
+	double	mouse_y;
+	double	move_x;
+	double	move_y;
 	double	zoom;
 }				t_frac;
 
 void			ft_error(char *str);
-void			mandelbrot(t_frac *frac);
+void			draw_fractol(t_frac *frac);
+void			mandelbrot(t_frac *frac, int x, int y);
+int				mouse_hook(int keycode, int x, int y, t_frac *frac);
+int				key_hook(int keycode, t_frac *frac);
 
 #endif
