@@ -41,7 +41,7 @@ t_frac		*init_frac(void)
 
 	frac = malloc(sizeof(t_frac));
 	ZOOM = 1;
-	COLOR = 0x0F0F0F;
+	COLOR = 256;
 	MOVE_X = -0.5;
 	MOVE_Y = 0;
 	FRACTOL = 0;

@@ -14,18 +14,24 @@
 
 static void		changed_zoom(int keycode, t_frac *frac, int x, int y)
 {
-	if (-0.5 < -0.5 + (float)x * 0.0009)
-		MS_X = -0.1;
-	else
-		MS_X = 0.1;
-	if (0 < 0 + (float)y * 0.0009)
-		MS_Y = -0.1;
-	else
-		MS_Y = 0.1;
+	double a;
+
+	a = ZOOM;
 	if (keycode == 4)
-		ZOOM += 0.1;
+		ZOOM *= 1.1;
 	else
-		ZOOM -= 0.1;
+		ZOOM *= 0.9;
+	while (a > 1)
+		a -= 0.1;
+	printf("%f\n", a);
+	if (x < WIDTH_W/2)
+		MOVE_X -= 0.03;
+	else
+		MOVE_X += 0.03;
+	if (y < HEIGHT_W/2)
+		MOVE_Y -= 0.03; 
+	else
+		MOVE_Y += 0.03;
 }
 
 static void		work_with_color(int keycode, t_frac *frac)
