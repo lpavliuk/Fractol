@@ -18,17 +18,17 @@ static void		choose_fractol(t_frac *frac, int x, int y)
 		mandelbrot(frac, x, y);
 }
 
-static void		*draw_fractol(void	*ptk)
+static void		*draw_fractol(void *ptk)
 {
-	int	x;
-	int	y;
-	int	max_y;
+	int			x;
+	int			y;
+	int			max_y;
 	t_threads	*potok;
 
 	potok = (t_threads *)ptk;
 	x = -1;
-	y = HEIGHT_W/8 * potok->num;
-	max_y = HEIGHT_W/8 * (potok->num + 1);
+	y = HEIGHT_W / 8 * potok->num;
+	max_y = HEIGHT_W / 8 * (potok->num + 1);
 	while (y < max_y)
 	{
 		x = -1;
@@ -54,6 +54,5 @@ void			work_pthreads(t_frac *frac)
 	i = -1;
 	while (++i < 8)
 		pthread_join(potok[i].threads, NULL);
-
 	mlx_put_image_to_window(MLX, WIN, IMG_PTR, 0, 0);
 }

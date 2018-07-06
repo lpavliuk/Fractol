@@ -33,8 +33,8 @@
 # define MS_Y frac->mouse_y
 # define FRACTOL frac->number
 
-# define WIDTH_W 1200
-# define HEIGHT_W 700
+# define WIDTH_W 2000
+# define HEIGHT_W 1200
 
 typedef struct	s_frac
 {

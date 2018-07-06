@@ -32,7 +32,8 @@ void		create_window(t_frac *frac)
 	MLX = mlx_init();
 	WIN = mlx_new_window(MLX, WIDTH_W, HEIGHT_W, "Fractol");
 	IMG_PTR = mlx_new_image(MLX, WIDTH_W, HEIGHT_W);
-	IMG = (int *)mlx_get_data_addr(IMG_PTR, &frac->bpp, &frac->size_line, &frac->endian);
+	IMG = (int *)mlx_get_data_addr(IMG_PTR, &frac->bpp,
+		&frac->size_line, &frac->endian);
 }
 
 t_frac		*init_frac(void)
@@ -52,10 +53,10 @@ t_frac		*init_frac(void)
 
 int			main(int argc, char **argv)
 {
+	t_frac	*frac;
+
 	if (argc == 2)
 	{
-		t_frac *frac;
-
 		frac = init_frac();
 		create_window(frac);
 		if (!ft_strcmp(argv[1], "1"))

@@ -23,7 +23,7 @@ void		mandelbrot(t_frac *frac, int x, int y)
 	double oldIm;
 	int maxIterations;
 
-	maxIterations = 250;
+	maxIterations = 300;
 	pr = 1.5 * (x - WIDTH_W / 2) / (0.5 * ZOOM * WIDTH_W) + MOVE_X;
 	pi = (y - HEIGHT_W / 2) / (0.5 * ZOOM * HEIGHT_W) + MOVE_Y;
 	newRe = newIm = oldRe = oldIm = 0;
