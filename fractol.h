@@ -32,9 +32,15 @@
 # define MS_X frac->mouse_x
 # define MS_Y frac->mouse_y
 # define FRACTOL frac->number
+# define PR frac->pr
+# define PI frac->pi
+# define NEWRE frac->newRe
+# define NEWIM frac->newIm
+# define OLDRE frac->oldRe
+# define OLDIM frac->oldIm
 
-# define WIDTH_W 2000
-# define HEIGHT_W 1200
+# define WIDTH_W 1200
+# define HEIGHT_W 700
 
 typedef struct	s_frac
 {
@@ -47,23 +53,32 @@ typedef struct	s_frac
 	int		size_line;
 	int		endian;
 	int		number;
-	double	mouse_x;
-	double	mouse_y;
 	double	move_x;
 	double	move_y;
 	double	zoom;
 }				t_frac;
 
+typedef struct	s_value
+{
+	double		pr;
+	double		pi;
+	double		newRe;
+	double		newIm;
+	double		oldRe;
+	double		oldIm;
+}				t_value;
+
 typedef struct	s_threads
 {
 	t_frac		*data;
 	pthread_t	threads;
+	t_value		*value;
 	int			num;
 }				t_threads;
 
 void			ft_error(char *str);
 void			work_pthreads(t_frac *frac);
-void			mandelbrot(t_frac *frac, int x, int y);
+void			mandelbrot(t_frac *frac, int x, int y, t_value *value);
 int				mouse_hook(int keycode, int x, int y, t_frac *frac);
 int				key_hook(int keycode, t_frac *frac);
 

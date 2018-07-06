@@ -12,10 +12,10 @@
 
 #include "fractol.h"
 
-static void		choose_fractol(t_frac *frac, int x, int y)
+static void		choose_fractol(t_frac *frac, int x, int y, t_value *value)
 {
 	if (FRACTOL == 1)
-		mandelbrot(frac, x, y);
+		mandelbrot(frac, x, y, value);
 }
 
 static void		*draw_fractol(void *ptk)
@@ -33,7 +33,7 @@ static void		*draw_fractol(void *ptk)
 	{
 		x = -1;
 		while (++x < WIDTH_W)
-			choose_fractol(potok->data, x, y);
+			choose_fractol(potok->data, x, y, potok->value);
 		y++;
 	}
 	return (0);
@@ -42,6 +42,7 @@ static void		*draw_fractol(void *ptk)
 void			work_pthreads(t_frac *frac)
 {
 	t_threads	potok[8];
+	t_value		value[8];
 	int			i;
 
 	i = -1;
@@ -49,6 +50,13 @@ void			work_pthreads(t_frac *frac)
 	{
 		potok[i].data = frac;
 		potok[i].num = i;
+		potok[i].value = &value[i];
+		value[i].pr = 0;
+		value[i].pi = 0;
+		value[i].newRe = 0;
+		value[i].newIm = 0;
+		value[i].oldRe = 0;
+		value[i].oldIm = 0;
 		pthread_create(&potok[i].threads, NULL, draw_fractol, &potok[i]);
 	}
 	i = -1;

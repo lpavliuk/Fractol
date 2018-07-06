@@ -40,14 +40,12 @@ t_frac		*init_frac(void)
 {
 	t_frac *frac;
 
-	frac = malloc(sizeof(t_frac));
+	frac = (t_frac *)malloc(sizeof(t_frac));
 	ZOOM = 1;
 	COLOR = 256;
 	MOVE_X = -0.5;
 	MOVE_Y = 0;
 	FRACTOL = 0;
-	frac->mouse_x = 0;
-	frac->mouse_y = 0;
 	return (frac);
 }
 
