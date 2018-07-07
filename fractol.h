@@ -29,6 +29,8 @@
 # define COLOR frac->color
 # define MOVE_X frac->move_x
 # define MOVE_Y frac->move_y
+# define CRE frac->cRe
+# define CIM frac->cIm
 # define FRACTOL frac->number
 # define MAXITER frac->maxiter
 
@@ -47,6 +49,8 @@ typedef struct	s_frac
 	int		endian;
 	int		number;
 	int		maxiter;
+	double	cRe;
+	double	cIm;
 	double	move_x;
 	double	move_y;
 	double	zoom;
@@ -69,7 +73,7 @@ typedef struct	s_threads
 	int			num;
 }				t_threads;
 
-void			ft_error(char *str);
+void			create_window(t_frac *frac);
 void			work_pthreads(t_frac *frac);
 void			mandelbrot(t_frac *frac, int x, int y);
 void			julia(t_frac *frac, int x, int y);
@@ -77,5 +81,6 @@ void			tricorn(t_frac *frac, int x, int y);
 void			celtic_mandelbrot(t_frac *frac, int x, int y);
 int				mouse_hook(int keycode, int x, int y, t_frac *frac);
 int				key_hook(int keycode, t_frac *frac);
+int				julia_hook(int x, int y, t_frac *frac);
 
 #endif

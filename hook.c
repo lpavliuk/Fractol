@@ -12,14 +12,6 @@
 
 #include "fractol.h"
 
-static void		changed_zoom(int keycode, t_frac *frac, int x, int y)
-{
-	if (keycode == 4)
-		ZOOM *= 1.1;
-	else if (keycode == 5)
-		ZOOM *= 0.9;
-}
-
 static void		work_with_color(int keycode, t_frac *frac)
 {
 	if (keycode == 76)
@@ -34,20 +26,20 @@ static void		work_with_shift(int keycode, t_frac *frac)
 {
 	double b;
 
-	if (ZOOM < 2)
-		b = 0.1;
-	else if (ZOOM < 10)
+	b = 0.1;
+	if (ZOOM > 2 && ZOOM <= 10)
 		b = 0.01;
-	else if (ZOOM < 100)
+	else if (ZOOM > 10 && ZOOM <= 100)
 		b = 0.001;
-	else if (ZOOM < 1000)
+	else if (ZOOM > 100 && ZOOM <= 1000)
 		b = 0.0001;
-	else
+	else if (ZOOM > 1000)
 		b = 0.00001;
 	if (keycode == 49)
 	{
 		MOVE_X = 0;
 		MOVE_Y = 0;
+		ZOOM = 0.5;
 	}
 	else if (keycode == 126)
 		MOVE_Y -= b;
@@ -59,12 +51,32 @@ static void		work_with_shift(int keycode, t_frac *frac)
 		MOVE_X += b;
 }
 
+int				julia_hook(int x, int y, t_frac *frac)
+{
+	if (FRACTOL == 2)
+	{
+		mlx_clear_window(MLX, WIN);
+		if (x > 0 && x < WIDTH_W && y > 0 && y < HEIGHT_W)
+		{
+			CRE = -0.7 * x / 1000;
+			CIM = 0.27015 * y / 1000;
+		}
+		work_pthreads(frac);
+	}
+	return (0);
+}
+
 int				mouse_hook(int keycode, int x, int y, t_frac *frac)
 {
-	mlx_clear_window(MLX, WIN);
-	if (keycode == 4 || keycode == 5 || keycode == 1 || keycode == 2)
-		changed_zoom(keycode, frac, x, y);
-	work_pthreads(frac);
+	if (keycode == 4 || keycode == 5)
+	{
+		mlx_clear_window(MLX, WIN);
+		if (keycode == 4)
+			ZOOM *= 1.1;
+		else
+			ZOOM *= 0.9;
+		work_pthreads(frac);
+	}
 	return (0);
 }
 

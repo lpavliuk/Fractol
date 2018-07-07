@@ -22,6 +22,14 @@ static void		choose_fractol(t_frac *frac, int x, int y)
 		tricorn(frac, x, y);
 	else if (FRACTOL == 4)
 		celtic_mandelbrot(frac, x, y);
+	// else if (FRACTOL == 5)
+	// 	(frac, x, y);
+	// else if (FRACTOL == 6)
+	// 	(frac, x, y);
+	// else if (FRACTOL == 7)
+	// 	(frac, x, y);
+	// else if (FRACTOL == 8)
+	// 	(frac, x, y);
 }
 
 static void		*draw_fractol(void *ptk)
@@ -61,4 +69,16 @@ void			work_pthreads(t_frac *frac)
 	while (++i < 4)
 		pthread_join(potok[i].threads, NULL);
 	mlx_put_image_to_window(MLX, WIN, IMG_PTR, 0, 0);
+}
+
+void			create_window(t_frac *frac)
+{
+	frac->endian = 0;
+	frac->bpp = 32;
+	frac->size_line = WIDTH_W;
+	MLX = mlx_init();
+	WIN = mlx_new_window(MLX, WIDTH_W, HEIGHT_W, "Fractol");
+	IMG_PTR = mlx_new_image(MLX, WIDTH_W, HEIGHT_W);
+	IMG = (int *)mlx_get_data_addr(IMG_PTR, &frac->bpp,
+		&frac->size_line, &frac->endian);
 }

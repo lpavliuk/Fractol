@@ -41,26 +41,22 @@ void		mandelbrot(t_frac *frac, int x, int y)
 void		julia(t_frac *frac, int x, int y)
 {
 	int		i;
-	double	cRe;
-	double	cIm;
 	t_value	value;
 
-	cRe = -0.7;
-	cIm = 0.27015;
 	value.newRe = 1.5 * (x - WIDTH_W / 2) / (0.5 * ZOOM * WIDTH_W) + MOVE_X;
 	value.newIm = (y - HEIGHT_W / 2) / (0.5 * ZOOM * HEIGHT_W) + MOVE_Y;
 	i = -1;
 	while (++i < MAXITER)
 	{
-    	value.oldRe = value.newRe;
+		value.oldRe = value.newRe;
 		value.oldIm = value.newIm;
 		value.newRe = value.oldRe * value.oldRe
-		- value.oldIm * value.oldIm + cRe;
-		value.newIm = 2 * value.oldRe * value.oldIm + cIm;
+		- value.oldIm * value.oldIm + CRE;
+		value.newIm = 2 * value.oldRe * value.oldIm + CIM;
 		if ((value.newRe * value.newRe + value.newIm * value.newIm) > 4)
-			break;
+			break ;
 	}
-    if (i == MAXITER)
+	if (i == MAXITER)
 		IMG[x + (y * WIDTH_W)] = 0x000000;
 	else
 		IMG[x + (y * WIDTH_W)] = COLOR * i;
