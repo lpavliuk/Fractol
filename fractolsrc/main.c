@@ -52,14 +52,22 @@ static void		fractol(char *argv)
 
 static void		open_2_window(char **argv)
 {
-	if (!ft_strcmp(argv[1], "1"))
-		system("./fractol 1 &");
-	else if (!ft_strcmp(argv[1], "2"))
-		system("./fractol 2 &");
-	else if (!ft_strcmp(argv[1], "3"))
-		system("./fractol 3 &");
-	else if (!ft_strcmp(argv[1], "4"))
-		system("./fractol 4 &");
+	if (!ft_strcmp(argv[1], "mandelbrot"))
+		system("./fractol mandelbrot &");
+	else if (!ft_strcmp(argv[1], "julia"))
+		system("./fractol julia &");
+	else if (!ft_strcmp(argv[1], "tricorn"))
+		system("./fractol tricorn &");
+	else if (!ft_strcmp(argv[1], "celtic"))
+		system("./fractol celtic &");
+	else if (!ft_strcmp(argv[1], "corridor"))
+		system("./fractol corridor &");
+	else if (!ft_strcmp(argv[1], "carpet"))
+		system("./fractol carpet &");
+	else if (!ft_strcmp(argv[1], "flower"))
+		system("./fractol flower &");
+	else if (!ft_strcmp(argv[1], "burning_ship"))
+		system("./fractol burning_ship &");
 	else
 	{
 		ft_printf(ERR_1);
@@ -76,7 +84,17 @@ int				main(int argc, char **argv)
 		open_2_window(argv);
 	else
 	{
-		ft_printf(ERR_0);
+		ft_printf("{green}Usage: {blue}./fractol ");
+		ft_printf("{yellow}[name of fractol 1] {blue}&& ");
+		ft_printf("{yellow}[name of fractol 2] ☝️ 😏 \n");
+		ft_printf("✅ | mandelbrot\n");
+		ft_printf("✅ | julia\n");
+		ft_printf("✅ | tricorn\n");
+		ft_printf("✅ | celtic\n");
+		ft_printf("✅ | corridor\n");
+		ft_printf("✅ | carpet\n");
+		ft_printf("✅ | flower\n");
+		ft_printf("✅ | burning_ship\n");
 		exit(0);
 	}
 	return (0);

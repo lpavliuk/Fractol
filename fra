@@ -1,1 +1,0 @@
-gcc main.c choose_fractol.c fractols2.c draw_fractol.c hook.c fractols.c libft/libft.a -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit -o fractol -I /usr/local/include

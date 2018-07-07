@@ -13,13 +13,12 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include "libft/libft.h"
+# include "../libft/libft.h"
 # include <mlx.h>
 # include <math.h>
 # include <pthread.h>
 
-# define ERR_0 "{green}Usage: {blue}./fractol {yellow}[name of fractol] ☝️ 😏\n"
-# define ERR_1 "{red}Error: {yellow}There isn't this type of fractol! 🤔\n"
+# define ERR_1 "{red}Error: {yellow}There isn't this type of fractal! 🤔\n"
 
 # define MLX frac->mlx_ptr
 # define WIN frac->win_ptr

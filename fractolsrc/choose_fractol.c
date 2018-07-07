@@ -14,21 +14,21 @@
 
 void		choose_fractol(char *argv, t_frac *frac)
 {
-	if (!ft_strcmp(argv, "1"))
+	if (!ft_strcmp(argv, "mandelbrot"))
 		FRACTOL = 1;
-	else if (!ft_strcmp(argv, "2"))
+	else if (!ft_strcmp(argv, "julia"))
 		FRACTOL = 2;
-	else if (!ft_strcmp(argv, "3"))
+	else if (!ft_strcmp(argv, "tricorn"))
 		FRACTOL = 3;
-	else if (!ft_strcmp(argv, "4"))
+	else if (!ft_strcmp(argv, "celtic"))
 		FRACTOL = 4;
-	else if (!ft_strcmp(argv, "5"))
+	else if (!ft_strcmp(argv, "corridor"))
 		FRACTOL = 5;
-	else if (!ft_strcmp(argv, "6"))
+	else if (!ft_strcmp(argv, "carpet"))
 		FRACTOL = 6;
-	else if (!ft_strcmp(argv, "7"))
+	else if (!ft_strcmp(argv, "flower"))
 		FRACTOL = 7;
-	else if (!ft_strcmp(argv, "8"))
+	else if (!ft_strcmp(argv, "burning_ship"))
 		FRACTOL = 8;
 	else
 	{
