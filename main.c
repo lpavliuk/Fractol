@@ -12,19 +12,19 @@
 
 #include "fractol.h"
 
-static int	exit_x(int keycode)
+static int		exit_x(int keycode)
 {
 	keycode = 0;
 	exit(0);
 }
 
-void		ft_error(char *str)
+void			ft_error(char *str)
 {
 	ft_printf(str);
 	exit(0);
 }
 
-void		create_window(t_frac *frac)
+void			create_window(t_frac *frac)
 {
 	frac->endian = 0;
 	frac->bpp = 32;
@@ -36,35 +36,38 @@ void		create_window(t_frac *frac)
 		&frac->size_line, &frac->endian);
 }
 
-t_frac		*init_frac(void)
+static t_frac	*init_frac(void)
 {
 	t_frac *frac;
 
 	frac = (t_frac *)malloc(sizeof(t_frac));
 	ZOOM = 1;
-	COLOR = 256;
-	MOVE_X = -0.5;
+	COLOR = 0x0F0F0F;
+	MOVE_X = 0;
 	MOVE_Y = 0;
 	FRACTOL = 0;
+	MAXITER = 250;
 	return (frac);
 }
 
-int			main(int argc, char **argv)
+int				main(int argc, char **argv)
 {
 	t_frac	*frac;
 
 	if (argc == 2)
 	{
 		frac = init_frac();
-		create_window(frac);
 		if (!ft_strcmp(argv[1], "1"))
 			FRACTOL = 1;
 		else if (!ft_strcmp(argv[1], "2"))
-			ft_printf("{green}OK - {yellow}2!\n");
+			FRACTOL = 2;
 		else if (!ft_strcmp(argv[1], "3"))
-			ft_printf("{green}OK - {yellow}3!\n");
+			FRACTOL = 3;
+		else if (!ft_strcmp(argv[1], "4"))
+			FRACTOL = 4;
 		else
 			ft_error(ERR_1);
+		create_window(frac);
 		work_pthreads(frac);
 		mlx_hook(WIN, 2, 0, key_hook, frac);
 		mlx_mouse_hook(WIN, mouse_hook, frac);

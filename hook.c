@@ -46,7 +46,7 @@ static void		work_with_shift(int keycode, t_frac *frac)
 		b = 0.00001;
 	if (keycode == 49)
 	{
-		MOVE_X = -0.5;
+		MOVE_X = 0;
 		MOVE_Y = 0;
 	}
 	else if (keycode == 126)
