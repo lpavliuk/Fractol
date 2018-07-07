@@ -31,6 +31,7 @@
 # define MOVE_Y frac->move_y
 # define CRE frac->cRe
 # define CIM frac->cIm
+# define CHANGED frac->changed
 # define FRACTOL frac->number
 # define MAXITER frac->maxiter
 
@@ -42,6 +43,7 @@ typedef struct	s_frac
 	void	*mlx_ptr;
 	void	*win_ptr;
 	void	*img_ptr;
+	char	changed;
 	int		*img;
 	int		color;
 	int		bpp;

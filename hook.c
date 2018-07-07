@@ -53,7 +53,7 @@ static void		work_with_shift(int keycode, t_frac *frac)
 
 int				julia_hook(int x, int y, t_frac *frac)
 {
-	if (FRACTOL == 2)
+	if (FRACTOL == 2 && CHANGED)
 	{
 		mlx_clear_window(MLX, WIN);
 		if (x > 0 && x < WIDTH_W && y > 0 && y < HEIGHT_W)
@@ -76,6 +76,13 @@ int				mouse_hook(int keycode, int x, int y, t_frac *frac)
 		else
 			ZOOM *= 0.9;
 		work_pthreads(frac);
+	}
+	if (keycode == 1)
+	{
+		if (CHANGED)
+			CHANGED = 0;
+		else
+			CHANGED = 1;
 	}
 	return (0);
 }

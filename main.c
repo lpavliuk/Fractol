@@ -23,6 +23,7 @@ static t_frac	*init_frac(void)
 	t_frac *frac;
 
 	frac = (t_frac *)malloc(sizeof(t_frac));
+	CHANGED = 1;
 	ZOOM = 0.5;
 	COLOR = 0xF0F0F0;
 	MOVE_X = 0;
