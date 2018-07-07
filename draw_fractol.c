@@ -12,7 +12,7 @@
 
 #include "fractol.h"
 
-static void		choose_fractol(t_frac *frac, int x, int y)
+static void		draw(t_frac *frac, int x, int y)
 {
 	if (FRACTOL == 1)
 		mandelbrot(frac, x, y);
@@ -22,14 +22,14 @@ static void		choose_fractol(t_frac *frac, int x, int y)
 		tricorn(frac, x, y);
 	else if (FRACTOL == 4)
 		celtic_mandelbrot(frac, x, y);
-	// else if (FRACTOL == 5)
-	// 	(frac, x, y);
-	// else if (FRACTOL == 6)
-	// 	(frac, x, y);
-	// else if (FRACTOL == 7)
-	// 	(frac, x, y);
-	// else if (FRACTOL == 8)
-	// 	(frac, x, y);
+	else if (FRACTOL == 5)
+		corridor(frac, x, y);
+	else if (FRACTOL == 6)
+		carpet(frac, x, y);
+	else if (FRACTOL == 7)
+		flower(frac, x, y);
+	else if (FRACTOL == 8)
+		burning_ship(frac, x, y);
 }
 
 static void		*draw_fractol(void *ptk)
@@ -47,7 +47,7 @@ static void		*draw_fractol(void *ptk)
 	{
 		x = -1;
 		while (++x < WIDTH_W)
-			choose_fractol(potok->data, x, y);
+			draw(potok->data, x, y);
 		y++;
 	}
 	return (0);

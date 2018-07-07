@@ -29,8 +29,8 @@
 # define COLOR frac->color
 # define MOVE_X frac->move_x
 # define MOVE_Y frac->move_y
-# define CRE frac->cRe
-# define CIM frac->cIm
+# define CRE frac->cre
+# define CIM frac->cim
 # define CHANGED frac->changed
 # define FRACTOL frac->number
 # define MAXITER frac->maxiter
@@ -51,8 +51,8 @@ typedef struct	s_frac
 	int		endian;
 	int		number;
 	int		maxiter;
-	double	cRe;
-	double	cIm;
+	double	cre;
+	double	cim;
 	double	move_x;
 	double	move_y;
 	double	zoom;
@@ -62,10 +62,10 @@ typedef struct	s_value
 {
 	double		pr;
 	double		pi;
-	double		newRe;
-	double		newIm;
-	double		oldRe;
-	double		oldIm;
+	double		newre;
+	double		newim;
+	double		oldre;
+	double		oldim;
 }				t_value;
 
 typedef struct	s_threads
@@ -77,10 +77,16 @@ typedef struct	s_threads
 
 void			create_window(t_frac *frac);
 void			work_pthreads(t_frac *frac);
+void			choose_fractol(char *argv, t_frac *frac);
+void			change_fractol(int keycode, t_frac *frac);
 void			mandelbrot(t_frac *frac, int x, int y);
 void			julia(t_frac *frac, int x, int y);
 void			tricorn(t_frac *frac, int x, int y);
 void			celtic_mandelbrot(t_frac *frac, int x, int y);
+void			corridor(t_frac *frac, int x, int y);
+void			carpet(t_frac *frac, int x, int y);
+void			flower(t_frac *frac, int x, int y);
+void			burning_ship(t_frac *frac, int x, int y);
 int				mouse_hook(int keycode, int x, int y, t_frac *frac);
 int				key_hook(int keycode, t_frac *frac);
 int				julia_hook(int x, int y, t_frac *frac);

@@ -35,13 +35,7 @@ static void		work_with_shift(int keycode, t_frac *frac)
 		b = 0.0001;
 	else if (ZOOM > 1000)
 		b = 0.00001;
-	if (keycode == 49)
-	{
-		MOVE_X = 0;
-		MOVE_Y = 0;
-		ZOOM = 0.5;
-	}
-	else if (keycode == 126)
+	if (keycode == 126)
 		MOVE_Y -= b;
 	else if (keycode == 125)
 		MOVE_Y += b;
@@ -53,7 +47,8 @@ static void		work_with_shift(int keycode, t_frac *frac)
 
 int				julia_hook(int x, int y, t_frac *frac)
 {
-	if (FRACTOL == 2 && CHANGED)
+	if ((FRACTOL == 2 || FRACTOL == 5
+		|| FRACTOL == 8 || FRACTOL == 7) && CHANGED)
 	{
 		mlx_clear_window(MLX, WIN);
 		if (x > 0 && x < WIDTH_W && y > 0 && y < HEIGHT_W)
@@ -98,8 +93,19 @@ int				key_hook(int keycode, t_frac *frac)
 	else if (keycode == 78 || keycode == 69 || keycode == 76)
 		work_with_color(keycode, frac);
 	else if (keycode == 123 || keycode == 124 || keycode == 125
-		|| keycode == 126 || keycode == 49)
+		|| keycode == 126)
 		work_with_shift(keycode, frac);
+	else if (keycode == 49)
+	{
+		MOVE_X = 0;
+		MOVE_Y = 0;
+		ZOOM = 0.5;
+		COLOR = 256;
+	}
+	else if (keycode == 18 || keycode == 19 || keycode == 20
+		|| keycode == 21 || keycode == 23 || keycode == 22
+		|| keycode == 26 || keycode == 28)
+		change_fractol(keycode, frac);
 	work_pthreads(frac);
 	return (0);
 }

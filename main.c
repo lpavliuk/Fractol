@@ -25,7 +25,7 @@ static t_frac	*init_frac(void)
 	frac = (t_frac *)malloc(sizeof(t_frac));
 	CHANGED = 1;
 	ZOOM = 0.5;
-	COLOR = 0xF0F0F0;
+	COLOR = 0x0F0F0F;
 	MOVE_X = 0;
 	MOVE_Y = 0;
 	CRE = -0.7;
@@ -40,19 +40,7 @@ static void		fractol(char *argv)
 	t_frac	*frac;
 
 	frac = init_frac();
-	if (!ft_strcmp(argv, "1"))
-		FRACTOL = 1;
-	else if (!ft_strcmp(argv, "2"))
-		FRACTOL = 2;
-	else if (!ft_strcmp(argv, "3"))
-		FRACTOL = 3;
-	else if (!ft_strcmp(argv, "4"))
-		FRACTOL = 4;
-	else
-	{
-		ft_printf(ERR_1);
-		exit(0);
-	}
+	choose_fractol(argv, frac);
 	create_window(frac);
 	work_pthreads(frac);
 	mlx_hook(WIN, 2, 0, key_hook, frac);

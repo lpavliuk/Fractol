@@ -19,17 +19,17 @@ void		mandelbrot(t_frac *frac, int x, int y)
 
 	value.pr = 1.5 * (x - WIDTH_W / 2) / (0.5 * ZOOM * WIDTH_W) + MOVE_X;
 	value.pi = (y - HEIGHT_W / 2) / (0.5 * ZOOM * HEIGHT_W) + MOVE_Y;
-	value.newRe = 0;
-	value.newIm = 0;
+	value.newre = 0;
+	value.newim = 0;
 	i = -1;
 	while (++i < MAXITER)
 	{
-		value.oldRe = value.newRe;
-		value.oldIm = value.newIm;
-		value.newRe = value.oldRe * value.oldRe
-		- value.oldIm * value.oldIm + value.pr;
-		value.newIm = 2 * value.oldRe * value.oldIm + value.pi;
-		if ((value.newRe * value.newRe + value.newIm * value.newIm) > 4)
+		value.oldre = value.newre;
+		value.oldim = value.newim;
+		value.newre = value.oldre * value.oldre
+		- value.oldim * value.oldim + value.pr;
+		value.newim = 2 * value.oldre * value.oldim + value.pi;
+		if ((value.newre * value.newre + value.newim * value.newim) > 4)
 			break ;
 	}
 	if (i == MAXITER)
@@ -43,17 +43,17 @@ void		julia(t_frac *frac, int x, int y)
 	int		i;
 	t_value	value;
 
-	value.newRe = 1.5 * (x - WIDTH_W / 2) / (0.5 * ZOOM * WIDTH_W) + MOVE_X;
-	value.newIm = (y - HEIGHT_W / 2) / (0.5 * ZOOM * HEIGHT_W) + MOVE_Y;
+	value.newre = 1.5 * (x - WIDTH_W / 2) / (0.5 * ZOOM * WIDTH_W) + MOVE_X;
+	value.newim = (y - HEIGHT_W / 2) / (0.5 * ZOOM * HEIGHT_W) + MOVE_Y;
 	i = -1;
 	while (++i < MAXITER)
 	{
-		value.oldRe = value.newRe;
-		value.oldIm = value.newIm;
-		value.newRe = value.oldRe * value.oldRe
-		- value.oldIm * value.oldIm + CRE;
-		value.newIm = 2 * value.oldRe * value.oldIm + CIM;
-		if ((value.newRe * value.newRe + value.newIm * value.newIm) > 4)
+		value.oldre = value.newre;
+		value.oldim = value.newim;
+		value.newre = value.oldre * value.oldre
+		- value.oldim * value.oldim + CRE;
+		value.newim = 2 * value.oldre * value.oldim + CIM;
+		if ((value.newre * value.newre + value.newim * value.newim) > 4)
 			break ;
 	}
 	if (i == MAXITER)
@@ -69,17 +69,17 @@ void		tricorn(t_frac *frac, int x, int y)
 
 	value.pr = 1.5 * (x - WIDTH_W / 2) / (0.5 * ZOOM * WIDTH_W) + MOVE_X;
 	value.pi = (y - HEIGHT_W / 2) / (0.5 * ZOOM * HEIGHT_W) + MOVE_Y;
-	value.newRe = 0;
-	value.newIm = 0;
+	value.newre = 0;
+	value.newim = 0;
 	i = -1;
 	while (++i < MAXITER)
 	{
-		value.oldRe = value.newRe;
-		value.oldIm = value.newIm;
-		value.newRe = value.oldRe * value.oldRe
-		- value.oldIm * value.oldIm + value.pr;
-		value.newIm = -2 * value.oldRe * value.oldIm + value.pi;
-		if ((value.newRe * value.newRe + value.newIm * value.newIm) > 4)
+		value.oldre = value.newre;
+		value.oldim = value.newim;
+		value.newre = value.oldre * value.oldre
+		- value.oldim * value.oldim + value.pr;
+		value.newim = -2 * value.oldre * value.oldim + value.pi;
+		if ((value.newre * value.newre + value.newim * value.newim) > 4)
 			break ;
 	}
 	if (i == MAXITER)
@@ -95,17 +95,17 @@ void		celtic_mandelbrot(t_frac *frac, int x, int y)
 
 	value.pr = 1.5 * (x - WIDTH_W / 2) / (0.5 * ZOOM * WIDTH_W) + MOVE_X;
 	value.pi = (y - HEIGHT_W / 2) / (0.5 * ZOOM * HEIGHT_W) + MOVE_Y;
-	value.newRe = 0;
-	value.newIm = 0;
+	value.newre = 0;
+	value.newim = 0;
 	i = -1;
 	while (++i < MAXITER)
 	{
-		value.oldRe = value.newRe;
-		value.oldIm = value.newIm;
-		value.newRe = fabs(value.oldRe * value.oldRe
-		- value.oldIm * value.oldIm) + value.pr;
-		value.newIm = 2 * value.oldRe * value.oldIm + value.pi;
-		if ((value.newRe * value.newRe + value.newIm * value.newIm) > 4)
+		value.oldre = value.newre;
+		value.oldim = value.newim;
+		value.newre = fabs(value.oldre * value.oldre
+		- value.oldim * value.oldim) + value.pr;
+		value.newim = 2 * value.oldre * value.oldim + value.pi;
+		if ((value.newre * value.newre + value.newim * value.newim) > 4)
 			break ;
 	}
 	if (i == MAXITER)
