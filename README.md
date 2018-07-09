@@ -14,11 +14,11 @@ __- tricorn__
 
 __- celtic__
 
-__- corridor__( my own )
+__- corridor__ ( my own )
 
-__- carpet__( my own )
+__- carpet__ ( my own )
 
-__- flower__(my own )
+__- flower__ (my own )
 
 __- burning_ship__
 
