@@ -1,8 +1,7 @@
 # Fractol
 
 
-This project was the opporunity to hone miniLibX skills, to make discover/use the mathematical notion of complex numbers and to take a peek at the
-concept of optimization in computer graphics.
+This project was the opporunity to hone __miniLibX__ skills, to make discover/use the mathematical notion of complex numbers and to take a peek at the concept of optimization in computer graphics.
 
 
 The term __fractal__ was first used by mathematician __Benoit Mandelbrot in 1974__,
