@@ -41,17 +41,17 @@ __Fractal - Wikipedia__ (https://en.wikipedia.org/wiki/Fractal).
 # Mandelbrot
 
 <br>
-<img height="600" width="1000" src="https://github.com/lpavliuk/Fractol/blob/master/screenshots/Screen%20Shot%202018-08-13%20at%202.39.58%20PM.png" />
+<img height="500" width="1000" src="https://github.com/lpavliuk/Fractol/blob/master/screenshots/Screen%20Shot%202018-08-13%20at%202.39.58%20PM.png" />
 <br>
 
 # Julia
 
 <br>
-<img height="600" width="1000" src="https://github.com/lpavliuk/Fractol/blob/master/screenshots/Screen%20Shot%202018-08-13%20at%202.40.59%20PM.png" />
+<img height="500" width="1000" src="https://github.com/lpavliuk/Fractol/blob/master/screenshots/Screen%20Shot%202018-08-13%20at%202.40.59%20PM.png" />
 <br>
 
 # Carpet
 
 <br>
-<img height="600" width="1000" src="https://github.com/lpavliuk/Fractol/blob/master/screenshots/Screen%20Shot%202018-08-13%20at%202.42.24%20PM.png" />
+<img height="500" width="1000" src="https://github.com/lpavliuk/Fractol/blob/master/screenshots/Screen%20Shot%202018-08-13%20at%202.42.24%20PM.png" />
 <br>
